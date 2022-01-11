@@ -19,7 +19,7 @@ export class MatchResultsComponent implements OnInit {
     this.getMatchResults();
   }
 
-  getMatchResults(): void {
+  getMatchResults(): void { // get results from server
     this.matchResultService.getMatchResults()
       .subscribe(result => this.matchResults = result)
   }
