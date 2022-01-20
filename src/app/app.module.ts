@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
 
 import {HttpClientModule} from "@angular/common/http";
+import { HistoryAggregateDataComponent } from './history-aggregate-data/history-aggregate-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MatchResultsComponent
+    MatchResultsComponent,
+    HistoryAggregateDataComponent
   ],
   imports: [
     BrowserModule,

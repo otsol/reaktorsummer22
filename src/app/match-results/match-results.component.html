@@ -3,7 +3,9 @@
 
   <li *ngFor="let match of matchResults">
     <a routerLink="/detail/{{match.matchId}}">
-      <span class="badge">{{match.playerA.name}}</span> {{match.playerA.name}}
+      <span class="badge">{{match.matchId}}</span> {{match.playerA.name}}: {{match.playedA}}
+        vs {{match.playerB.name}}: {{match.playedB}}
+
     </a>
   </li>
   <!--  <li *ngFor="let hero of heroes"-->
