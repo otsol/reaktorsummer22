@@ -6,7 +6,4 @@ export interface IMatchResult {
   time: number;
   playerA: IPlayer;
   playerB: IPlayer;
-  // playedA: string;
-  // playedB: string;
-
 }

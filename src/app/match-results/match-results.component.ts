@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMatchResult} from "../match-result.model";
 import { MatchResultService} from "../services/match-result.service";
-import {IRawMatchResultData} from "../raw-match-result-data.model";
+
 
 @Component({
   selector: 'app-match-results',

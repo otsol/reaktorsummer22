@@ -5,7 +5,7 @@ import { IRawMatchResultData, IRawGameResult} from "../raw-match-result-data.mod
 
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError, combineLatest, lastValueFrom, zip, filter} from "rxjs";
-import { mergeAll , map} from "rxjs/operators"
+import { map} from "rxjs/operators"
 import { catchError, retry} from "rxjs";
 
 
