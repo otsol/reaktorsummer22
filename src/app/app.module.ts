@@ -7,12 +7,14 @@ import { MatchResultsComponent } from './match-results/match-results.component';
 
 import {HttpClientModule} from "@angular/common/http";
 import { HistoryAggregateDataComponent } from './history-aggregate-data/history-aggregate-data.component';
+import { LiveMatchesComponent } from './live-matches/live-matches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MatchResultsComponent,
-    HistoryAggregateDataComponent
+    HistoryAggregateDataComponent,
+    LiveMatchesComponent
   ],
   imports: [
     BrowserModule,

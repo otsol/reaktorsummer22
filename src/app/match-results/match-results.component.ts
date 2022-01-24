@@ -20,8 +20,8 @@ export class MatchResultsComponent implements OnInit {
   }
 
   getMatchResults(): void { // get results from server
-    this.matchResultService.getMatchResults()
-      .subscribe(result => this.matchResults = result);
+    this.matchResultService.getCursorAndResults()
+      .subscribe(result => this.matchResults = result[1]); // Only match results are needed
   }
   get sortedByDate(): IMatchResult[] {
     return this.matchResultService.sortedByDate(this.matchResults);

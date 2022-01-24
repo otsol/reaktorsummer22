@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  wsEndpoint: 'wss://bad-api-assignment.reaktor.com/rps/live'
 };
