@@ -23,5 +23,8 @@ export class MatchResultsComponent implements OnInit {
     this.matchResultService.getMatchResults()
       .subscribe(result => this.matchResults = result);
   }
+  get sortedByDate(): IMatchResult[] {
+    return this.matchResultService.sortedByDate(this.matchResults);
+  }
 
 }

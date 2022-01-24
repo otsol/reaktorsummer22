@@ -37,20 +37,26 @@ export class MatchResultService {
   //
   // }
 
+    sortedByDate(array: IMatchResult[]): IMatchResult[] {
+      return array.sort( (a, b) =>  {
+        return b.time - a.time;
+       } );
+    }
+
     getResults(defaultCursor: string = "/rps/history/" )/*: [Observable<string>, Observable<IMatchResult[]>]*/ {
       let json = this.http.get<IRawMatchResultData>(this.resultsUrl + defaultCursor )
       let match = json.pipe(map(h => h.data.map( match => {
 
-          const pA: IPlayer = { name: match.playerA.name };
-          const pB: IPlayer = { name: match.playerB.name };
+          const pA: IPlayer = { name: match.playerA.name, played: match.playerA.played };
+          const pB: IPlayer = { name: match.playerB.name, played: match.playerB.played };
 
           const ret: IMatchResult = {
             matchId: match.gameId,
             time: match.t,
             playerA: pA,
             playerB: pB,
-            playedA: match.playerA.played,
-            playedB: match.playerB.played
+            // playedA: match.playerA.played,
+            // playedB: match.playerB.played
           };
           return ret;  // stackoverflow: https://stackoverflow.com/questions/13142635/how-can-i-create-an-object-based-on-an-interface-file-definition-in-typescript
         }))).pipe(
@@ -65,16 +71,16 @@ export class MatchResultService {
       return this.http.get<IRawMatchResultData>(this.resultsUrl + cursor )
         .pipe(map(h => h.data.map( match => {
 
-          const pA: IPlayer = { name: match.playerA.name };
-          const pB: IPlayer = { name: match.playerB.name };
+          const pA: IPlayer = { name: match.playerA.name, played: match.playerA.played };
+          const pB: IPlayer = { name: match.playerB.name, played: match.playerB.played };
 
           const ret: IMatchResult = {
             matchId: match.gameId,
             time: match.t,
             playerA: pA,
             playerB: pB,
-            playedA: match.playerA.played,
-            playedB: match.playerB.played
+            // playedA: match.playerA.played,
+            // playedB: match.playerB.played
           };
           return ret;  // stackoverflow: https://stackoverflow.com/questions/13142635/how-can-i-create-an-object-based-on-an-interface-file-definition-in-typescript
         }))).pipe(
@@ -97,6 +103,7 @@ export class MatchResultService {
         // let nextCursor: string;
         // first[0].subscribe(h => nextCursor = h);
         let nextCursor: string = first[0];
+        console.log(nextCursor);
         cursors.push(nextCursor);
         first$ = this.getResults(nextCursor);
         first = await lastValueFrom(first$);

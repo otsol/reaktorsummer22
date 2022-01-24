@@ -1,18 +1,28 @@
 <h2>Recent Matches</h2>
+<!--<ul class="heroes">-->
+
+<!--  <li *ngFor="let match of matchResults">-->
+<!--    <a routerLink="/detail/{{match.matchId}}">-->
+<!--      <span class="badge">{{match.matchId}}</span> {{match.playerA.name}}: {{match.playerA.played}}-->
+<!--        vs {{match.playerB.name}}: {{match.playerB.played}}-->
+
+<!--    </a>-->
+<!--  </li>-->
+<!--  &lt;!&ndash;  <li *ngFor="let hero of heroes"&ndash;&gt;-->
+<!--  &lt;!&ndash;    [class.selected]="hero === selectedHero"&ndash;&gt;-->
+<!--  &lt;!&ndash;      (click)="onSelect(hero)">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <span class="badge">{{hero.id}}</span> {{hero.name}}&ndash;&gt;-->
+
+<!--  &lt;!&ndash;  </li>&ndash;&gt;-->
+
+<!--</ul>-->
 <ul class="heroes">
+  <li *ngFor="let match of sortedByDate">
+    <span class="wrap">
+      <span class="badge">{{(match.time) | date : 'short' }}</span><a routerLink="/player/{{match.playerA.name}}">{{match.playerA.name}}</a>: {{match.playerA.played}}
+      vs <a routerLink="/player/{{match.playerB.name}}">{{match.playerB.name}}</a>: {{match.playerB.played}}
+    </span>
 
-  <li *ngFor="let match of matchResults">
-    <a routerLink="/detail/{{match.matchId}}">
-      <span class="badge">{{match.matchId}}</span> {{match.playerA.name}}: {{match.playedA}}
-        vs {{match.playerB.name}}: {{match.playedB}}
-
-    </a>
   </li>
-  <!--  <li *ngFor="let hero of heroes"-->
-  <!--    [class.selected]="hero === selectedHero"-->
-  <!--      (click)="onSelect(hero)">-->
-  <!--    <span class="badge">{{hero.id}}</span> {{hero.name}}-->
-
-  <!--  </li>-->
-
 </ul>
+
